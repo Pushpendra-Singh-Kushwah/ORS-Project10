@@ -1,0 +1,126 @@
+<app-navbar></app-navbar>
+<div class="row " style="padding-top: 3%; padding-bottom:3%;background-image: url(../../assets/files/gettyimages-1132439283-640x640.jpg);
+background-attachment: fixed;
+background-size: cover;width:auto;
+  height: auto;">
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body shadow-lg">
+        <form>
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold">Add Marksheet</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold">Update Marksheet</h2>
+          <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Roll No.</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="rollNo" [(ngModel)]="form.data.rollNo" class="form-control"
+                  placeholder="Enter Roll No">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.rollNo}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Student</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <select *ngIf="!form.data.id>0" class="form-control" required name="studentId" [(ngModel)]="selected"
+                  style="cursor: pointer;">
+                  <option [ngValue]="null" [disabled]="true">Please Select</option>
+                  <option *ngFor="let obj of form.preload.studentList" [value]="obj.id">{{obj.firstName}}</option>
+                </select>
+
+                <select *ngIf="form.data.id>0" class="form-control" required name="studentId"
+                  [(ngModel)]="form.data.studentId" style="cursor: pointer;">
+                  <option *ngFor="let obj of form.preload.studentList" [value]="obj.id">{{obj.firstName}}</option>
+                </select>
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.firstName}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Physics:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="phy" [(ngModel)]="form.data.physics" class="form-control"
+                  placeholder="Enter Physics">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.physics}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Chemistry:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="chemistry" [(ngModel)]="form.data.chemistry" class="form-control"
+                  placeholder="Enter Chemistry">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.chemistry}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Maths:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="math" [(ngModel)]="form.data.maths" class="form-control"
+                  placeholder="Enter Maths">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.maths}} </span>
+          </div>
+
+          <div class="row pt-3 pl-3 pb-3">
+            <div class="pt-2">
+              <button *ngIf="!form.data.id>0" (click)="submit()" [disabled]="!validate()" class="btn btn-success mr-2">
+                Save</button>
+            </div>
+            <div class="pt-2">
+              <button *ngIf="form.data.id>0" (click)="submit()" class="btn btn-success mr-2">
+                Update</button>
+            </div>
+            <div class="pt-2">
+              <button (click)="forward('/marksheetlist')" type="button" class="btn btn-warning mr-1">List
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

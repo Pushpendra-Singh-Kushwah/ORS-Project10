@@ -1,0 +1,186 @@
+<nav *ngIf="!isLogin()" class="navbar navbar-expand-lg bg-dark">
+  <a class="nav-link">
+    <strong class="text-white">Rays</strong>
+  </a>
+  <select #locale (change)='changeLocale(locale.value)'>
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+  </select>
+  <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav ml-auto mr-3">
+      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="myNav" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Hi,Guest'| translate}}
+          </font>
+
+        </a>
+
+        <div class="dropdown-menu" id="myNav" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/login"><i class="fa fa-sign-in"></i>{{'Log in' | translate}}</a>
+          <a class="dropdown-item" href="/signup"><i class=" fa fa-users"></i>{{'User Registration' | translate}}</a>
+        </div>
+      </li>
+      <li>
+
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<nav *ngIf="isLogin()" class="navbar navbar-expand-lg bg-dark">
+  <a class="nav-link">
+    <strong class="text-white">NCS Pvt Ltd</strong>
+  </a>
+
+  <select #locale (change)='changeLocale(locale.value)'>
+    <option value="en">English</option>
+    <option value="hi">{{'Hindi' | translate }}</option>
+  </select>
+
+
+  <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav pl-2 ml-auto">
+
+
+      <li class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'User' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/user']"><i
+              class="fa fa-user"></i>{{'Add User' | translate}}</a>
+          <a class="dropdown-item" href="/userlist"><i class="fa fa-list"></i>{{'User List' | translate}}</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" style="padding-left: 5px;"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Message' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/message']"><i
+              class="fa fa-comment"></i>{{'Add Message' | translate}}</a>
+          <a class="dropdown-item" href="/messagelist"><i
+              class="fa fa-list"></i>{{'Message List' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Marksheet' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/marksheet']"><i
+              class="fa fa-file"></i>{{'Add Marksheet' | translate}}</a> <a class="dropdown-item"
+            href="/marksheetlist"><i class="fa fa-paste"></i>{{'Marksheet List' | translate}}</a> <a
+            class="dropdown-item" href="/marksheetmeritlist"><i
+              class=" fa fa-file-o"></i>{{'Marksheet Merit List' | translate}} </a>
+          <a class="dropdown-item" href="/getmarksheet"><i class="fa fa-copy"></i>{{'Get Marksheet' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Role' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/role']"><i
+              class="fa fa-user"></i>{{'Add Role' | translate}}</a> <a class="dropdown-item" href="/rolelist"><i
+              class="fa fa-users"></i>{{'Role List' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'College' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/college']"><i
+              class="fa fa-university"></i>{{'Add College' | translate}}</a> <a class="dropdown-item"
+            href="/collegelist"><i class="fa fa-building"></i>{{'College List' | translate}} </a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Course' | translate}}
+          </font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/course']"><i
+              class="fa fa-book"></i>{{'Add Course' | translate}}</a> <a class="dropdown-item"
+            href="courselist"><i class="fa fa-list"></i>{{'Course List' | translate}} </a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Student' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/student']"><i
+              class="fa fa-user"></i>{{'Add Student' | translate}}</a> <a class="dropdown-item"
+            href="/studentlist"><i class="fa fa-users"></i>{{'Student List' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Faculty' | translate}}
+          </font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/faculty']"><i
+              class="fa fa-users"></i>{{'Add Faculty' | translate}}</a> <a class="dropdown-item"
+            href="/facultylist"><i class=" fa fa-list"></i>{{'Faculty List' | translate}}</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'TimeTable' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/timetable']"><i
+              class="fa fa-clock-o"></i>{{'Add TimeTable' | translate}}</a> <a class="dropdown-item"
+            href="/timetablelist"><i class="fa fa-list"></i>{{'TimeTable List' | translate}}</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{'Subject' | translate}}</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/subject']"><i
+              class="fa fa-calculator"></i>{{'Add Subject' | translate}}</a> <a class="dropdown-item"
+            href="/subjectlist"> <i class="fa fa-list"></i>{{'Subject List' | translate}}
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle" href="#"
+          id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <font style="color: white;">{{form.data.fname }} ({{form.data.role}})
+          </font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" (click)="forward()"><i class=" fa fa-user-md"></i>{{'My Profile' | translate}}</a>
+          <a class="dropdown-item" href="/changepassword"><i
+              class=" fa fa-key"></i>{{'Change Password' | translate}}</a>
+          <a class="dropdown-item" href="../../assets/doc/index.html" target="blank"><i
+              class="fa fa-file"></i>{{'Java Doc' | translate}}</a>
+          <a class="dropdown-item" (click)="logout()"><i class=" fa fa-sign-out"></i>{{'Log Out' | translate}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div>
+
+</div>

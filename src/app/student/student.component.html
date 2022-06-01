@@ -1,0 +1,154 @@
+<app-navbar></app-navbar>
+<div class="row " style="padding-top: 3%; padding-bottom:3%;background-image: url(../../assets/files/gettyimages-1132439283-640x640.jpg);
+background-attachment: fixed;
+background-size: cover;width:auto;
+  height: auto;">
+
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body shadow-lg">
+        <form>
+          <h2 *ngIf="!form.data.id>0" class="text-primary font-weight-bold">Add Student</h2>
+          <h2 *ngIf="form.data.id>0" class="text-primary font-weight-bold">Update Student</h2>
+
+          <div *ngIf="form.error" class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+          <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{form.message}}
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Enrollment No:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="enrolNo" [(ngModel)]="form.data.enrolNo" class="form-control"
+                  placeholder="Enter Enrollment Number">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.enrolNo}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>First Name:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="firstN" [(ngModel)]="form.data.firstName" class="form-control"
+                  placeholder="Enter First Name">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.firstName}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Last Name:</b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="lastN" [(ngModel)]="form.data.lastName" class="form-control"
+                placeholder="Enter Last Name">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.firstName}} </span>
+          </div>
+
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>College </b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <select *ngIf="!form.data.id>0" class="form-control" name="collegeId" [(ngModel)]="selected" style="cursor: pointer;">
+                  <option [ngValue]="null" [disabled]="true" >Please select</option>
+                  <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+
+                <select *ngIf="form.data.id>0" class="form-control" name="collegeId" [(ngModel)]="form.data.collegeId" style="cursor: pointer;">
+                  <option [ngValue]="null" [disabled]="true" >Please select</option>
+                  <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.collegeId}} </span>
+          </div>
+
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Email: </b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="email" [(ngModel)]="form.data.email" class="form-control"
+                placeholder="Enter Email Id">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.email}} </span>
+          </div>
+{{form.data.dob}}
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>DOB:</b>
+              <span class="required-field"></span></span>
+
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="date" name="dob"  [(ngModel)]="form.data.dob" class="form-control">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.dob}} </span>
+          </div>
+          
+          <div style="padding-top:3%">
+            <span class="pt-2"><b>Mobile No: </b>
+              <span class="required-field"></span></span>
+            <div class="col-sm-12">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope grey-text"></i> </div>
+                </div>
+                <input type="text" name="phoneNo" [(ngModel)]="form.data.phoneNo" class="form-control"
+                placeholder="Enter Mobile Number">
+              </div>
+            </div>
+            <span class="alertRedColor"> {{form.inputerror.phoneNo}} </span>
+          </div>
+  
+          <div class="row pt-3 pl-3 pb-3">
+            <div class="pt-2">
+            <button *ngIf="!form.data.id>0" (click)="submit()" [disabled]="!validate()" class="btn btn-success mr-2">
+              Save</button>
+          </div>
+          <div class="pt-2">
+            <button *ngIf="form.data.id>0" (click)="submit()"  class="btn btn-success mr-2">
+              Update</button>
+          </div>
+          <div class="pt-2">
+            <button (click)="forward('/studentlist')" type="button" class="btn btn-warning mr-1">List
+            </button>
+          </div></div>
+        </form>
+      </div>
+    </div>
+  </div></div>
+  <app-footer></app-footer>
